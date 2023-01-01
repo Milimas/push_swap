@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeihaqi <abeihaqi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 01:55:40 by abeihaqi          #+#    #+#             */
-/*   Updated: 2022/11/21 01:56:33 by abeihaqi         ###   ########.fr       */
+/*   Created: 2022/10/07 22:51:43 by abeihaqi          #+#    #+#             */
+/*   Updated: 2022/10/11 03:42:04 by abeihaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-size_t	ft_putchar(int fd, char *c)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	return (write(fd, c, 1));
+	unsigned char	*p;
+
+	p = b;
+	while (len--)
+		*p++ = (unsigned char)c;
+	return (b);
 }

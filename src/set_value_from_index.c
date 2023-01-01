@@ -1,20 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   set_value_from_index.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeihaqi <abeihaqi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 01:58:31 by abeihaqi          #+#    #+#             */
-/*   Updated: 2022/11/21 01:59:40 by abeihaqi         ###   ########.fr       */
+/*   Created: 2022/12/15 09:19:46 by abeihaqi          #+#    #+#             */
+/*   Updated: 2022/12/15 09:19:49 by abeihaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(void *f)
+int	get_arr_index(t_push_swap *ps, int number)
 {
-	free(f);
-	write(2, "Error\n", 6);
-	exit(1);
+	int	size;
+
+	size = ps->size;
+	while (size >= 0)
+	{
+		if (ps->arr[size-- - 1] == number)
+			return (size);
+	}
+	return (-1);
+}
+
+void	set_value_from_index(t_push_swap **ps, t_stack *stack_a)
+{
+	int	i;
+	int	*ar;
+
+	i = 0;
+	ar = (*ps)->arr;
+	while (stack_a)
+	{
+		stack_a->num = get_arr_index(*ps, stack_a->num);
+		stack_a = stack_a->next;
+	}
+	while (i < (*ps)->size)
+	{
+		*ar++ = i++;
+	}
 }

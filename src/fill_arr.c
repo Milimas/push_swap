@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigits.c                                      :+:      :+:    :+:   */
+/*   fill_arr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeihaqi <abeihaqi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 01:56:58 by abeihaqi          #+#    #+#             */
-/*   Updated: 2022/11/21 01:58:13 by abeihaqi         ###   ########.fr       */
+/*   Created: 2022/11/27 09:53:01 by abeihaqi          #+#    #+#             */
+/*   Updated: 2022/12/13 16:59:12 by abeihaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigits(char *str)
+void	fill_arr(t_push_swap **ps)
 {
-	while (*str)
-		if (*str < '0' || *str++ > '9')
-			return (0);
-	return (1);
+	size_t	i;
+
+	i = 0;
+	(*ps)->arr = malloc(sizeof(int) * (*ps)->size);
+	if (!(*ps)->arr)
+		exit_on_error(1, "");
+	while (i < (size_t)(*ps)->size)
+	{
+		(*ps)->arr[i] = ft_atoi((*ps)->arg[i]);
+		i++;
+	}
 }

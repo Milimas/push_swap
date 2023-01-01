@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_back.c                                         :+:      :+:    :+:   */
+/*   create_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeihaqi <abeihaqi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 09:58:33 by abeihaqi          #+#    #+#             */
-/*   Updated: 2022/11/27 09:58:54 by abeihaqi         ###   ########.fr       */
+/*   Created: 2022/11/27 09:56:09 by abeihaqi          #+#    #+#             */
+/*   Updated: 2022/12/13 16:58:28 by abeihaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	add_back(t_stack **stack, t_stack *new)
+void	*create_new(int number)
 {
-	if (!*stack)
-		*stack = new;
-	else
-		get_last(*stack)->next = new;
+	t_stack	*new;
 
+	new = malloc(sizeof(t_stack));
+	new->num = number;
+	new->next = NULL;
+	return (new);
 }
-

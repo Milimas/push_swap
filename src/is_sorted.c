@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iseq.c                                             :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abeihaqi <abeihaqi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 09:55:00 by abeihaqi          #+#    #+#             */
-/*   Updated: 2022/11/29 04:31:01 by abeihaqi         ###   ########.fr       */
+/*   Created: 2022/12/13 16:16:30 by abeihaqi          #+#    #+#             */
+/*   Updated: 2022/12/13 17:03:48 by abeihaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		iseq(char *s1, char *s2)
+int	is_sorted(t_stack *stack)
 {
-	if (!s1 || !s2)
-		return (0);
-	while (*s1 && *s2)
-		if (*s1++ != *s2++)
+	while (stack && stack->next)
+	{
+		if (stack->num > stack->next->num)
 			return (0);
-	if (*s1 == *s2)
-		return (1);
-	return (0);
+		else
+			stack = stack->next;
+	}
+	exit_on_error(0, "");
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: abeihaqi <abeihaqi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:11:08 by abeihaqi          #+#    #+#             */
-/*   Updated: 2022/11/29 04:31:25 by abeihaqi         ###   ########.fr       */
+/*   Updated: 2022/12/14 23:30:26 by abeihaqi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ void	run(char *action, t_stack **a, t_stack **b)
 		rev_rotate(a);
 	if (iseq(action, RRB) || iseq(action, RRR))
 		rev_rotate(b);
-	printf("%s", action);
-	// printf(" ====> a ");
-	// print_stack(*a);
-	// printf("\t b ");
-	// print_stack(*b);
-	printf("\n");
+	ft_putstr(action, 1);
+	ft_putstr("\n", 1);
 }
-
